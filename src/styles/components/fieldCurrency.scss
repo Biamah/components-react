@@ -1,0 +1,42 @@
+.fieldCurrency {
+  position: relative;
+  width: 100%;
+  font-family: "Roboto", sans-serif; // Ou sua fonte preferida
+
+  &__prefix {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 10px 10px 10px 35px; // Espaço para o prefixo R$
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #fff;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: #4a90e2;
+      box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+    }
+
+    &::placeholder {
+      color: #aaa;
+      opacity: 1;
+    }
+
+    &:disabled {
+      background-color: #f5f5f5;
+      cursor: not-allowed;
+    }
+  }
+}
