@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./styles/App.scss";
-import FieldCurrency from "./components/FieldCurrency";
+import FieldCurrency from "./components/fieldCurrency/FieldCurrency";
 
 function App() {
   const [inputValue, setInputValue] = useState(0);
