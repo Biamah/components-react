@@ -18,15 +18,12 @@ export default function FieldCurrency({ value, onChange }: FieldCurrencyProps) {
     const inputValue = e.target.value;
     const rawValue = inputValue.replace(/\D/g, "");
 
-    // Atualiza o valor numérico
     const numericValue = rawValue ? parseInt(rawValue) / 100 : 0;
     onChange(numericValue);
 
-    // Formata o novo valor
     const formattedValue = formatDisplay(rawValue);
     setDisplayValue(formattedValue);
 
-    // Guarda a posição do cursor para uso no useEffect
     lastCursorPosition.current = cursorPosition;
   };
 
@@ -48,7 +45,6 @@ export default function FieldCurrency({ value, onChange }: FieldCurrencyProps) {
   };
 
   useEffect(() => {
-    // Ajusta a posição do cursor após renderização
     if (inputRef.current) {
       const newPosition = Math.min(
         lastCursorPosition.current,
@@ -59,7 +55,6 @@ export default function FieldCurrency({ value, onChange }: FieldCurrencyProps) {
   }, [displayValue]);
 
   useEffect(() => {
-    // Sincroniza com mudanças externas
     setDisplayValue(formatDisplay(toRawString(value)));
     lastCursorPosition.current = formatDisplay(toRawString(value)).length;
   }, [value]);

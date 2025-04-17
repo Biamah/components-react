@@ -10,14 +10,12 @@ export const toRawString = (val: number): string => {
 };
 
 export const formatDisplay = (raw: string): string => {
-  // Remove zeros à esquerda desnecessários
   const cleanRaw = raw.replace(/^0+/, "") || "0";
   const padded = cleanRaw.padStart(3, "0");
 
   const reais = padded.slice(0, -2);
   const centavos = padded.slice(-2);
 
-  // Formata reais com separadores de milhar
   const formattedReais =
     reais.length > 0 ? parseInt(reais).toLocaleString("pt-BR") : "0";
 

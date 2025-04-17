@@ -1,0 +1,77 @@
+// Variáveis
+$balloon-bg: #ffffff;
+$balloon-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+$balloon-radius: 8px;
+$text-color: #333333;
+$close-color: #999999;
+
+// Animação
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-balloon {
+  position: relative;
+  background: $balloon-bg;
+  padding: 16px 24px;
+  border-radius: $balloon-radius;
+  box-shadow: $balloon-shadow;
+  max-width: 240px;
+  animation: fadeIn 0.2s ease-out forwards;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: $balloon-bg transparent transparent;
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.1));
+  }
+}
+
+.popup-close {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: $close-color;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+
+  &:hover {
+    color: darken($close-color, 20%);
+  }
+}
+
+.popup-message {
+  margin: 0;
+  color: $text-color;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
+}
