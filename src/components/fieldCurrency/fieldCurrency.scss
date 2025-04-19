@@ -1,7 +1,6 @@
 .fieldCurrency {
   position: relative;
   width: 100%;
-  font-family: "Roboto", sans-serif; // Ou sua fonte preferida
 
   &__prefix {
     position: absolute;
@@ -9,7 +8,7 @@
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
-    color: #fff;
+    color: var(--primary-color);
     font-weight: 500;
     font-size: 14px;
   }
@@ -20,8 +19,9 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
-    color: #fff;
+    color: var(--primary-color);
     transition: border-color 0.3s ease;
+    background-color: var(--slate-background);
 
     &:focus {
       outline: none;

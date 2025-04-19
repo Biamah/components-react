@@ -1,5 +1,6 @@
 import { useState } from "react";
-import "./styles/App.scss";
+import "./styles/main.scss";
+import "./styles/App.scss"
 import FieldCurrency from "./components/fieldCurrency/FieldCurrency";
 import { Popup } from "./components/popup/Popup";
 
@@ -8,7 +9,7 @@ function App() {
   const [showPopup, setShowPopup] = useState(false);
 
   return (
-    <>
+    <section className="app">
       <h1>Input de Dinheiro</h1>
       <FieldCurrency
         value={inputValue}
@@ -24,7 +25,7 @@ function App() {
           message="Esta é uma mensagem simples no formato de balão!"
         />
       </div>
-    </>
+    </section>
   );
 }
 
