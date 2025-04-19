@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { toRawString, formatDisplay } from "../../utils/currency";
+import { toRawString, formatDisplay } from "@/utils/currency";
 import "./fieldCurrency.scss";
 
 interface FieldCurrencyProps {
