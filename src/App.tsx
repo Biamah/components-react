@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./styles/App.scss";
 import FieldCurrency from "./components/fieldCurrency/FieldCurrency";
 import { Popup } from "./components/popup/Popup";
+import { ToastNotification } from "./components/toastNotification/ToastNotification";
 
 function App() {
   const [inputValue, setInputValue] = useState(0);
@@ -22,6 +23,14 @@ function App() {
           isOpen={showPopup}
           onClosed={() => setShowPopup(false)}
           message="Esta é uma mensagem simples no formato de balão!"
+        />
+      </div>
+      <div className="mt">
+        <ToastNotification
+          message="Novas atualizações disponíveis!"
+          duration={3000}
+          autoClose={true}
+          position="top-right"
         />
       </div>
     </>
