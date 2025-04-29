@@ -27,7 +27,7 @@ function App() {
       </div>
       <div className="mt">
         <ToastNotification
-          message="Novas atualizações disponíveis!"
+          message="Voce tem uma nova notificação!"
           duration={3000}
           autoClose={true}
           position="top-right"

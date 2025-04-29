@@ -3,48 +3,41 @@ import "./ToastNotification.scss";
 
 type ToastProps = {
   message: string;
-  duration?: number; // em milissegundos
+  duration?: number;
   autoClose?: boolean;
   position?: "top-right" | "bottom-right" | "top-left" | "bottom-left";
+  showInterval?: number;
 };
 
 export function ToastNotification({
-  message = "Nova notificação disponível!",
-  duration = 5000, // 5 segundos
-  autoClose = true,
-  position = "bottom-right",
+  message,
+  duration,
+  autoClose,
+  position,
+  showInterval,
 }: ToastProps) {
   const [visible, setVisible] = useState(false);
 
-  useEffect(() => {
-    // Mostra a notificação imediatamente após o refresh
+  const showToast = () => {
     setVisible(true);
-
-    if (autoClose) {
-      setTimeout(() => {
-        setVisible(false);
-      }, duration);
+    if (autoClose && duration) {
+      setTimeout(() => setVisible(false), duration);
     }
+  };
 
-    // Configura o intervalo para exibir a notificação a cada 2 minutos
-    const interval = setInterval(() => {
-      setVisible(true);
+  useEffect(() => {
+    showToast();
 
-      if (autoClose) {
-        setTimeout(() => {
-          setVisible(false);
-        }, duration);
-      }
-    }, 8000); // 2 minutos
-
-    // Limpa o intervalo quando o componente é desmontado
-    return () => clearInterval(interval);
-  }, [autoClose, duration]);
+    if (showInterval) {
+      const interval = setInterval(showToast, showInterval);
+      return () => clearInterval(interval);
+    }
+  }, [message, duration, autoClose, position, showInterval]);
 
   if (!visible) return null;
 
   return (
-    <div className={`toast-notification ${position}`}>
+    <div className={`toast-notification ${position || ""}`}>
       <div className="toast-content">
         <p>{message}</p>
       </div>
