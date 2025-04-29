@@ -1,0 +1,25 @@
+:root {
+  --primary-color: #333;
+  --primary-background: #ffffff;
+  --slate-background: #efefef;
+  --highlight-color: hotpink;
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #fafafa;
+    --primary-background: #1d1616;
+    --highlight-color: hotpink;
+  }
+}
+
+body {
+  color: var(--primary-color);
+  background-color: var(--primary-background);
+  transition:
+    color 0.4s,
+    background-color 0.4s;
+  font-family: "Roboto", sans-serif; // Ou sua fonte preferida
+}
