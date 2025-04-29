@@ -1,8 +1,10 @@
 import { useState } from "react";
 import "./styles/main.scss";
-import "./styles/App.scss"
+import "./styles/App.scss";
+import "./styles/utilities.scss";
 import FieldCurrency from "./components/fieldCurrency/FieldCurrency";
 import { Popup } from "./components/popup/Popup";
+import { ToastNotification } from "./components/toastNotification/ToastNotification";
 
 function App() {
   const [inputValue, setInputValue] = useState(0);
@@ -25,6 +27,12 @@ function App() {
           message="Esta é uma mensagem simples no formato de balão!"
         />
       </div>
+      <ToastNotification
+        message="Voce tem uma nova notificação!"
+        duration={3000}
+        autoClose={true}
+        position="top-right"
+      />
     </section>
   );
 }

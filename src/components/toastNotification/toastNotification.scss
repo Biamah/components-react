@@ -1,0 +1,78 @@
+// Variáveis
+$toast-bg: #333;
+$toast-text: #fff;
+$toast-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+$toast-border-radius: 8px;
+$toast-padding: 16px;
+$toast-margin: 20px;
+$toast-width: 300px;
+$toast-z-index: 9999;
+
+// Animação
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.toast-notification {
+  position: fixed;
+  z-index: $toast-z-index;
+  animation: slideIn 0.3s ease-out forwards;
+
+  &.top-right {
+    top: $toast-margin;
+    right: $toast-margin;
+  }
+
+  &.bottom-right {
+    bottom: $toast-margin;
+    right: $toast-margin;
+  }
+
+  &.top-left {
+    top: $toast-margin;
+    left: $toast-margin;
+  }
+
+  &.bottom-left {
+    bottom: $toast-margin;
+    left: $toast-margin;
+  }
+
+  .toast-content {
+    width: $toast-width;
+    padding: $toast-padding;
+    background: $toast-bg;
+    color: $toast-text;
+    border-radius: $toast-border-radius;
+    box-shadow: $toast-shadow;
+    position: relative;
+    overflow: hidden;
+
+    p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    // Animação de saída quando autoClose é true
+    .auto-close & {
+      animation: fadeOut 0.5s ease-out 3000 - 0.5s forwards;
+    }
+  }
+}
