@@ -5,10 +5,16 @@ import "./styles/utilities.scss";
 import FieldCurrency from "./components/fieldCurrency/FieldCurrency";
 import { Popup } from "./components/popup/Popup";
 import { ToastNotification } from "./components/toastNotification/ToastNotification";
+import { DropdownSelect } from "./components/dropdownSelect/DropdownSelect";
 
 function App() {
   const [inputValue, setInputValue] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
+
+  const dropdownOptions = ["Opção 1", "Opção 2", "Opção 3", "Opção 4"];
+  const handleSelect = (selected: string) => {
+    console.log("Opção selecionada:", selected);
+  };
 
   return (
     <section className="app">
@@ -33,6 +39,14 @@ function App() {
         autoClose={true}
         position="top-right"
       />
+
+      <div className="mt">
+        <DropdownSelect
+          options={dropdownOptions.map((option) => option)}
+          placeholder="Escolha uma opção"
+          onSelect={handleSelect}
+        />
+      </div>
     </section>
   );
 }
